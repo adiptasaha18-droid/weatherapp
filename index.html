@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Weatherly — a clean, modern weather dashboard with hourly and 7-day forecasts, live map, and a day/night sun tracker.">
+    <title>Weatherly | Home</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="box brand">
+                <img src="assets/images/logo.svg" alt="Weatherly logo">
+                <h2 style="color:white">Weatherly</h2>
+            </div>
+            <div class="box">
+                <img src="assets/images/nav-home.gif" alt="">
+                <p>Home</p>
+            </div>
+            <div class="box">
+                <img src="assets/images/nav-forecast.png" alt="">
+                <a href="forecast.html" target="_blank">
+                    <p>Forecast</p>
+                </a>
+            </div>
+            <div class="box">
+                <img src="assets/images/nav-maps.png" alt="">
+                <p>Maps</p>
+            </div>
+            <!-- <div class="box">
+                <img src="assets/images/nav-favourites.png" alt="">
+                <p>Favourites</p>
+            </div>
+            <div class="box">
+                <img src="assets/images/nav-alert.png" alt="">
+                <p>Alert</p>
+            </div>
+            <div class="box">
+                <img src="assets/images/nav-settings.png" alt="">
+                <p>Settings</p>
+            </div> -->
+            <div class="premiumbtn">
+                <div class="heading1">
+                    <h3>Premium</h3>
+                    <img src="assets/images/icon-crown.png" alt="">
+                </div>
+                <p>Unlock ad free features and premium experience</p>
+                <button id="goprembtn">Go Premium</button>
+            </div>
+            <div class="locationarea">
+                <div class="dropdown">
+                    <img src="assets/images/icon-location.png" alt="">
+                    <select name="location" id="location">
+                        <option value="New York">New York,USA</option>
+                    </select>
+                </div>
+                <div class="detectlocation">
+                    <img src="assets/images/icon-detect.png" alt="">
+                    <button id="locationbtn">
+                        Detect my Location
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="maincontent">
+            <div class="inputbar">
+                <input type="text" id="input" placeholder="Search for your city">
+                <p style="color:red;" id="error"></p>
+            </div>
+            <section class="primarydisplay">
+                <h1 id="primarytitle">New York,USA</h1>
+                <p id="datetime">Tuesday,May 21.10:10 a.m.</p>
+                <div class="display">
+                    <img src="assets/images/weather-clear.svg" class="weathericon1" alt="Current condition icon">
+                    <p id="currenttemp">24 <sup>&deg; C</sup></p>
+                </div>
+                <div class="card">
+                    <div id="temp" class="box1">
+                        <div class="text">
+                            <img src="assets/images/icon-feelslike.png" alt="">
+                            <p>Feels Like</p>
+                        </div>
+                        <h3 id="apptemp">25 &deg; C</h3>
+                    </div>
+                    <div class="box1" id="humidity">
+                        <div class="text">
+                            <img src="assets/images/icon-humidity.png" alt="">
+                            <p>Humidity</p>
+                        </div>
+                        <h3 id="rhumidity">58 %</h3>
+                    </div>
+                    <div class="box1" id="pressure2">
+                        <div class="text">
+                            <img src="assets/images/icon-pressure.png" alt="">
+                            <p>Pressure</p>
+                        </div>
+                        <h3 id="pressure">1012 hPa</h3>
+                    </div>
+                    <div class="box1" id="wind">
+                        <div class="text">
+                            <img src="assets/images/icon-wind.png" alt="">
+                            <p>Wind</p>
+                        </div>
+                        <h3 id="mwindspeed">18 km/h</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hourlyforecast">
+                <div class="heading">
+                    <p>Hourly forecast</p>
+                    <a  style="color:blue;" href="forecast.html" target="_blank">Show All</a>
+                </div>
+                <div class="card1">
+                    <div class="hourlyforecastcard">
+                        <p id="time0">Now</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="0">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time1">10 AM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="1">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time2">11 AM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="2">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time3">12 PM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="3">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time4">1 PM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="4">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time5">2 PM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="5">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time6">3 PM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="6">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="time7">4 PM</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="7">24 <sup> &deg; </sup></p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="hourlyforecast">
+                <div class="heading">
+                    <p>7 Day forecast</p>
+                    <a  style="color:blue;" href="forecast.html" target="_blank">Show All</a>
+                    
+                </div>
+                <div class="card1">
+                    <div class="hourlyforecastcard">
+                        <p id="day0">Tue</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="0day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day1">Wed</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="1day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day2">Thurs</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="2day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day3">Fri</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="3day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day4">Sat</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="4day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day5">Sun</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="5day">24 <sup> &deg; </sup></p>
+                    </div>
+                    <div class="hourlyforecastcard">
+                        <p id="day6">Mon</p>
+                        <img src="assets/images/weather-clear.svg" alt="">
+                        <p id="6day">24 <sup> &deg; </sup></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="rightsidebar">
+            <div class="container1">
+                <div class="headline">
+                    <p>Sun &amp; Moon</p>
+                    <span class="daynight-pill" id="daynightPill">Day</span>
+                </div>
+                <div class="headline">
+                    <div class="headline1">
+                        <img src="assets/images/icon-sunrise.png" alt="">
+                        <p id="sunrisetime">Sunrise <br>05 am</p>
+                    </div>
+                    <div class="headline1">
+                        <img src="assets/images/icon-sunset.png" alt="">
+                        <p id="sunsettime">Sunset <br>
+                            05 pm</p>
+                    </div>
+                </div>
+
+                <!-- Sun / Moon tracker: semicircular dial, orange arc = elapsed portion of daylight,
+                     indigo arc = elapsed portion of night. The body (sun or moon) rides the arc and
+                     carries a small cloud/rain/snow badge that reflects current conditions. -->
+                <div class="suntracker" id="suntracker">
+                    <div class="suntracker-arcwrap">
+                        <svg class="suntracker-arc" viewBox="0 0 300 160" preserveAspectRatio="xMidYMid meet"
+                            aria-hidden="true">
+                            <defs>
+                                <linearGradient id="dayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ff8a3d" />
+                                    <stop offset="100%" stop-color="#ffce54" />
+                                </linearGradient>
+                                <linearGradient id="nightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#4c3bcf" />
+                                    <stop offset="100%" stop-color="#7c6cf0" />
+                                </linearGradient>
+                            </defs>
+                            <path class="track-bg" d="M20,150 A130,130 0 0 1 280,150" pathLength="100" />
+                            <path class="track-progress" id="trackProgress" d="M20,150 A130,130 0 0 1 280,150"
+                                pathLength="100" />
+                        </svg>
+                        <div class="suntracker-body" id="celestialBody">
+                            <div class="celestial-core" id="celestialCore"></div>
+                            <div class="celestial-badge" id="celestialBadge"></div>
+                        </div>
+                        <div class="suntracker-horizon"></div>
+                    </div>
+                    <div class="suntracker-labels">
+                        <span id="suntrackerNow">--:--</span>
+                        <span id="suntrackerPhase"></span>
+                    </div>
+                </div>
+
+                <div class="weatherlist">
+                    <div class="card2">
+                        <p>Visibility</p>
+                        <p style="color: white;" id="visibility">18 km</p>
+                    </div>
+                    <div class="card2">
+                        <p>UV index</p>
+                        <p style="color: red;" id="Uvindex">6 high</p>
+                    </div>
+                    <div class="card2">
+                        <p>Air quality index</p>
+                        <p style="color: green;" id="airquality">45 good</p>
+                    </div>
+                    <div class="card2">
+                        <p>Cloud Cover</p>
+                        <p style="color: white;" id="cloudcover">32%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container2">
+                <div class="headline3">
+                    <h3>Live Map</h3>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d144862.19292756155!2d88.26667221610764!3d24.15196401410602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1785228686746!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+
+        
+
+
+
+            </div>
+
+            <div class="container3">
+                <img src="assets/images/icon-location.png" alt="">
+                <p>Get Accurate weather updates <br>enable location access for more</p>
+                <button id="locationaccess">Enable access</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="assets/js/locations.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
